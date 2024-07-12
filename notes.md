@@ -24,5 +24,5 @@ go to https://authjs.dev/ and select prisma adapter also select models for users
 npm install @auth/prisma-adapter
 
 **_ bcrypt _**
-npm i bcrypt (to encrypt the password)
+npm i bcrypt or bcryptjs (to encrypt the password)
 npm i -D @types/bcrypt
