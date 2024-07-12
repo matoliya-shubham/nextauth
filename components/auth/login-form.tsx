@@ -19,6 +19,7 @@ import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
 import { register } from "@/actions/register";
 import { useState, useTransition } from "react";
+import { login } from "@/actions/login";
 
 export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
@@ -36,7 +37,7 @@ export default function LoginForm() {
     setError("");
     setSuccess("");
     startTransition(() => {
-      register(values)
+      login(values)
         .then((data) => {
           setError(data.error);
           setSuccess(data.success);
@@ -96,7 +97,7 @@ export default function LoginForm() {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button type="submit" className="w-full">
+          <Button disabled={isPending} type="submit" className="w-full">
             Login
           </Button>
         </form>

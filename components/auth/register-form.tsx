@@ -19,6 +19,7 @@ import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
 import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
+import { register } from "@/actions/register";
 
 export default function RegisterForm() {
   const [isPending, startTransition] = useTransition();
@@ -33,11 +34,10 @@ export default function RegisterForm() {
     },
   });
   const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
-    console.log("values is ", values);
     setError("");
     setSuccess("");
     startTransition(() => {
-      login(values)
+      register(values)
         .then((data) => {
           setError(data.error);
           setSuccess(data.success);
