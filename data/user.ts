@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { db } from "@/libs/db";
+import { db } from "@/lib/db";
 
 export const getUserByEmail = async (email: string) => {
   try {
